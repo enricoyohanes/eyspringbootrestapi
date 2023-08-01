@@ -10,15 +10,16 @@ Version 1.0
 */
 import com.juaracoding.eyspringbootrestapi.model.Peserta;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-
+@Transactional
 public interface PesertaRepo extends JpaRepository<Peserta,Integer> {
 
     List<Peserta> findByNama(String strNama);//DERIVED QUERY
 //    List<Peserta> findByNamaStartWith(String strNama);//DERIVED QUERY
-
+    void deleteByNama(String strNama);
 
 }
 

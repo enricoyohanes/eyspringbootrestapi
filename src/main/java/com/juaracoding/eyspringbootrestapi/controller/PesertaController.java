@@ -55,6 +55,11 @@ public class PesertaController {
         List<Peserta> hasil = pesertaRepo.findByNama(nama);
         return hasil;
     }
+    @PostMapping("/delete-peserta-by-nama")
+    public String deletePesertaByNama(@RequestParam(value = "nama") String nama) {
+        pesertaRepo.deleteByNama(nama);
+        return "Peserta bernama " + nama + " berhasil dihapus";
+    }
 
 
 }
